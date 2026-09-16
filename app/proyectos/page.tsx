@@ -13,9 +13,7 @@ export default function ProyectosPage() {
     <>
       <section className="bg-secondary py-20 text-white sm:py-28">
         <Container className="flex flex-col gap-4">
-          <span className="text-sm font-bold uppercase tracking-widest text-primary">
-            Nuestro trabajo
-          </span>
+          <span className="text-sm font-bold text-primary">Nuestro trabajo</span>
           <h1 className="max-w-2xl font-heading text-4xl font-extrabold sm:text-5xl">
             Proyectos destacados
           </h1>

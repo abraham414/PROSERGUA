@@ -43,9 +43,7 @@ export default function NosotrosPage() {
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
         <Container className="relative flex flex-col gap-4">
-          <span className="text-sm font-bold uppercase tracking-widest text-primary">
-            Conoce acerca de nosotros
-          </span>
+          <span className="text-sm font-bold text-primary">Conoce acerca de nosotros</span>
           <h1 className="max-w-2xl font-heading text-4xl font-extrabold sm:text-5xl">
             Quiénes somos
           </h1>

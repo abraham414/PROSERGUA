@@ -19,9 +19,7 @@ export default function SectionHeading({
     <div className={`flex flex-col gap-3 ${alignClasses}`}>
       {eyebrow && (
         <span
-          className={`text-sm font-semibold uppercase tracking-wider ${
-            light ? "text-primary" : "text-primary-dark"
-          }`}
+          className={`text-sm font-bold ${light ? "text-primary" : "text-secondary"}`}
         >
           {eyebrow}
         </span>

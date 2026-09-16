@@ -33,7 +33,7 @@ export default function Services() {
                   </h3>
                   <p className="text-sm text-gray-600">{service.shortDescription}</p>
                   <span className="mt-auto pt-3 text-sm font-semibold text-secondary">
-                    Ver más →
+                    Ver más
                   </span>
                 </div>
               </Card>

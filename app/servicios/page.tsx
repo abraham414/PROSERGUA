@@ -16,9 +16,7 @@ export default function ServiciosPage() {
     <>
       <section className="bg-secondary py-20 text-white sm:py-28">
         <Container className="flex flex-col gap-4">
-          <span className="text-sm font-bold uppercase tracking-widest text-primary">
-            Áreas principales
-          </span>
+          <span className="text-sm font-bold text-primary">Áreas principales</span>
           <h1 className="max-w-2xl font-heading text-4xl font-extrabold sm:text-5xl">
             Servicios
           </h1>
@@ -50,7 +48,7 @@ export default function ServiciosPage() {
                     </h2>
                     <p className="text-sm text-gray-600">{service.shortDescription}</p>
                     <span className="mt-auto pt-3 text-sm font-semibold text-secondary">
-                      Ver detalle →
+                      Ver detalle
                     </span>
                   </div>
                 </Card>

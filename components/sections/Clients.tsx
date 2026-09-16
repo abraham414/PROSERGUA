@@ -16,7 +16,7 @@ export default function Clients() {
           {clients.map((client) => (
             <div
               key={client.name}
-              className="flex flex-col items-center gap-3 rounded-card bg-white p-4 shadow-card"
+              className="flex flex-col items-center gap-3 rounded-card border border-gray-200 bg-white p-4"
             >
               <div className="relative h-20 w-full overflow-hidden rounded-button">
                 <Image
