@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { company } from "@/data/company";
+import { services } from "@/data/services";
 
 export default function Philosophy() {
   return (
@@ -16,6 +17,10 @@ export default function Philosophy() {
           <div className="rounded-card border border-gray-100 bg-white p-8 shadow-card">
             <h3 className="font-heading text-xl font-bold text-secondary">Visión</h3>
             <p className="mt-3 text-gray-600">{company.vision}</p>
+            <p className="mt-3 text-sm text-gray-500">
+              En la práctica: seguir ampliando nuestras {services.length} áreas de servicio y la
+              lista de instituciones que confían en nuestro trabajo.
+            </p>
           </div>
         </div>
 

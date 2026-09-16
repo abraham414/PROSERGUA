@@ -45,7 +45,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
             type="button"
             onClick={() => setActiveIndex(index)}
             className="group relative aspect-square overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-            aria-label={`Ver ${project.title} en tamaño completo`}
+            aria-label={`Ver en tamaño completo: ${project.category}`}
           >
             <Image
               src={project.image.src}
@@ -54,6 +54,9 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-neutral-900/80 to-transparent px-3 pb-2 pt-6">
+              <span className="text-xs font-semibold text-white">{project.category}</span>
+            </div>
           </button>
         ))}
       </div>
@@ -62,7 +65,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={active.title}
+          aria-label={`${active.category}: ${active.title}`}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-neutral-900/90 p-4 sm:p-8"
           onClick={close}
         >
@@ -92,16 +95,21 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
           </button>
 
           <div
-            className="relative aspect-[4/3] w-full max-w-3xl"
+            className="flex w-full max-w-3xl flex-col gap-3"
             onClick={(event) => event.stopPropagation()}
           >
-            <Image
-              src={active.image.src}
-              alt={active.image.alt}
-              fill
-              sizes="100vw"
-              className="rounded-card object-contain"
-            />
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src={active.image.src}
+                alt={active.image.alt}
+                fill
+                sizes="100vw"
+                className="rounded-card object-contain"
+              />
+            </div>
+            <p className="text-center text-sm font-semibold text-white">
+              {active.category} · {active.title}
+            </p>
           </div>
 
           <button

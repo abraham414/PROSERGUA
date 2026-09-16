@@ -43,6 +43,7 @@ export interface Service {
 export interface Project {
   id: string;
   title: string;
+  category: string;
   image: {
     src: string;
     alt: string;
