@@ -3,7 +3,9 @@ export interface CompanyInfo {
   brandName: string;
   tagline: string;
   foundedYear: number;
+  foundedMonthIndex: number;
   foundedLabel: string;
+  teamSize: number;
   teamSizeLabel: string;
   mission: string;
   vision: string;

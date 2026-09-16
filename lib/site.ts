@@ -10,3 +10,14 @@ export const siteConfig = {
 export function absoluteUrl(path: string): string {
   return `${siteConfig.url}${path}`;
 }
+
+/**
+ * Años completos transcurridos desde un mes/año de fundación, sin
+ * redondear hacia arriba antes de cumplirse el mes de aniversario.
+ */
+export function yearsSince(year: number, monthIndex: number): number {
+  const now = new Date();
+  let years = now.getFullYear() - year;
+  if (now.getMonth() < monthIndex) years -= 1;
+  return years;
+}

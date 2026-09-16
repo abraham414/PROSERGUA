@@ -5,6 +5,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Philosophy from "@/components/sections/Philosophy";
 import ValueProposition from "@/components/sections/ValueProposition";
 import { company } from "@/data/company";
+import { yearsSince } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Nosotros",
@@ -63,8 +64,9 @@ export default function NosotrosPage() {
             {company.teamSizeLabel.toLowerCase()}.
           </p>
           <p className="max-w-3xl text-gray-600">
-            PROSERGUA es una empresa guatemalteca con {new Date().getFullYear() - company.foundedYear}{" "}
-            años de trayectoria en el mercado, dedicada a brindar soluciones integrales en
+            PROSERGUA es una empresa guatemalteca con{" "}
+            {yearsSince(company.foundedYear, company.foundedMonthIndex)} años de trayectoria en
+            el mercado, dedicada a brindar soluciones integrales en
             remodelación, construcción, servicios
             eléctricos, auditorías eléctricas y comercialización de suministros para
             construcción y electricidad. A lo largo de estos años hemos tenido la oportunidad
