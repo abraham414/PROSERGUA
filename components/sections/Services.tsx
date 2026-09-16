@@ -14,7 +14,7 @@ export default function Services() {
           title="Soluciones integrales para cada proyecto"
           align="center"
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Link key={service.slug} href={`/servicios/${service.slug}`} className="group block">
               <Card className="flex h-full flex-col overflow-hidden">
@@ -23,7 +23,7 @@ export default function Services() {
                     src={service.image.src}
                     alt={service.image.alt}
                     fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
@@ -39,6 +39,19 @@ export default function Services() {
               </Card>
             </Link>
           ))}
+          <Link href="/contacto" className="group block">
+            <Card className="flex h-full min-h-[220px] flex-col items-start justify-center gap-2 border-2 border-dashed border-secondary/30 bg-transparent p-6">
+              <h3 className="font-heading text-lg font-bold text-secondary">
+                ¿Necesitas algo más?
+              </h3>
+              <p className="text-sm text-gray-600">
+                Cuéntanos qué necesitas y te ayudamos a resolverlo.
+              </p>
+              <span className="mt-auto pt-3 text-sm font-semibold text-secondary group-hover:underline">
+                Contáctanos
+              </span>
+            </Card>
+          </Link>
         </div>
       </Container>
     </section>

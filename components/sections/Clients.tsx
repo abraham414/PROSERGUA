@@ -4,21 +4,25 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { clients } from "@/data/clients";
 import type { Client } from "@/types";
 
-function ClientGrid({ items }: { items: Client[] }) {
+function ClientGrid({ items, fit }: { items: Client[]; fit: "cover" | "contain" }) {
   return (
-    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+    <div className="flex flex-wrap justify-center gap-6">
       {items.map((client) => (
         <div
           key={client.name}
-          className="flex flex-col items-center gap-3 rounded-card border border-gray-200 bg-white p-4"
+          className="flex w-32 flex-none flex-col items-center gap-3 rounded-card border border-gray-200 bg-white p-4 sm:w-36 lg:w-40"
         >
-          <div className="relative h-20 w-full overflow-hidden rounded-button">
+          <div
+            className={`relative h-20 w-full overflow-hidden rounded-button ${
+              fit === "contain" ? "bg-gray-50 p-2" : ""
+            }`}
+          >
             <Image
               src={client.image.src}
               alt={client.image.alt}
               fill
               sizes="200px"
-              className="object-cover"
+              className={fit === "contain" ? "object-contain" : "object-cover"}
             />
           </div>
           <span className="text-center text-xs font-semibold text-gray-600">{client.name}</span>
@@ -45,14 +49,14 @@ export default function Clients() {
           <h3 className="text-center text-sm font-bold text-secondary">
             Instituciones de gobierno
           </h3>
-          <ClientGrid items={governmentClients} />
+          <ClientGrid items={governmentClients} fit="cover" />
         </div>
 
         <div className="flex flex-col gap-4">
           <h3 className="text-center text-sm font-bold text-secondary">
             Clientes y aliados comerciales
           </h3>
-          <ClientGrid items={brandClients} />
+          <ClientGrid items={brandClients} fit="contain" />
         </div>
       </Container>
     </section>

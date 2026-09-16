@@ -21,9 +21,9 @@ export default function Projects() {
           {preview.map((project) => (
             <Link
               key={project.id}
-              href="/proyectos"
+              href={`/proyectos#${project.id}`}
               className="group relative aspect-square overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-              aria-label={`Ver galería completa de proyectos — ${project.category}`}
+              aria-label={`Ver en la galería: ${project.category}`}
             >
               <Image
                 src={project.image.src}

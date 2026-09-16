@@ -34,6 +34,16 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [activeIndex, close, showPrev, showNext]);
 
+  useEffect(() => {
+    // Syncs with the browser's location hash, which does not exist during SSR
+    // and cannot be read any other way.
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const index = projects.findIndex((project) => project.id === hash);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (index !== -1) setActiveIndex(index);
+  }, [projects]);
+
   const active = activeIndex !== null ? projects[activeIndex] : null;
 
   return (
@@ -42,6 +52,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
         {projects.map((project, index) => (
           <button
             key={project.id}
+            id={project.id}
             type="button"
             onClick={() => setActiveIndex(index)}
             className="group relative aspect-square overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
