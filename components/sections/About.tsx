@@ -2,6 +2,13 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { company } from "@/data/company";
+import { governmentClients } from "@/data/clients";
+
+const stats = [
+  { value: "2020", label: "Año de fundación" },
+  { value: "25", label: "Personas en el equipo" },
+  { value: `${governmentClients.length}`, label: "Instituciones de gobierno atendidas" },
+];
 
 export default function About() {
   return (
@@ -20,6 +27,17 @@ export default function About() {
             Nuestro equipo está compuesto por asesores de proyectos, ingenieros
             especializados en diversas ramas y técnicos altamente calificados.
           </p>
+
+          <dl className="mt-2 grid grid-cols-3 gap-4 border-t border-gray-100 pt-6">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <dd className="font-heading text-3xl font-extrabold text-secondary">
+                  {stat.value}
+                </dd>
+                <dt className="mt-1 text-xs leading-snug text-gray-500">{stat.label}</dt>
+              </div>
+            ))}
+          </dl>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-card shadow-card">
           <Image

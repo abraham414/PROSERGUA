@@ -51,6 +51,7 @@ export interface Project {
 
 export interface Client {
   name: string;
+  type: "government" | "brand";
   image: {
     src: string;
     alt: string;

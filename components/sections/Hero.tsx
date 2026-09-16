@@ -16,7 +16,7 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-secondary/75" />
+        <div className="absolute inset-0 bg-secondary/60" />
       </div>
 
       {/* sm and up: diagonal split with photo on the right. */}
@@ -33,7 +33,6 @@ export default function Hero() {
           />
           <div className="absolute inset-0 bg-secondary/55 [clip-path:polygon(8%_0,100%_0,100%_100%,0%_100%)]" />
         </div>
-        <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-primary/90 lg:h-80 lg:w-80" />
       </div>
 
       <Container className="relative py-20 sm:py-32 lg:py-40">
@@ -41,10 +40,10 @@ export default function Hero() {
           <span className="inline-block rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-widest text-neutral-900">
             {company.tagline}
           </span>
-          <h1 className="mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.35)] sm:text-5xl sm:[text-shadow:none] lg:text-6xl">
             {company.brandName}
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-100">
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-100 [text-shadow:0_1px_3px_rgba(0,0,0,0.35)] sm:[text-shadow:none]">
             Empresa guatemalteca dedicada a brindar soluciones integrales en remodelación,
             construcción, servicios eléctricos, auditorías eléctricas y comercialización de
             suministros para construcción y electricidad.

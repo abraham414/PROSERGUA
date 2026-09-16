@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { LinkButton } from "@/components/ui/Button";
@@ -18,15 +19,20 @@ export default function Projects() {
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {preview.map((project) => (
-            <div key={project.id} className="relative aspect-square overflow-hidden rounded-card">
+            <Link
+              key={project.id}
+              href="/proyectos"
+              className="group relative aspect-square overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+              aria-label="Ver galería completa de proyectos"
+            >
               <Image
                 src={project.image.src}
                 alt={project.image.alt}
                 fill
                 sizes="(min-width: 640px) 33vw, 50vw"
-                className="object-cover transition-transform duration-300 hover:scale-105"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-            </div>
+            </Link>
           ))}
         </div>
       </Container>
