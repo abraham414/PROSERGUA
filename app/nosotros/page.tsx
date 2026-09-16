@@ -63,8 +63,9 @@ export default function NosotrosPage() {
             {company.teamSizeLabel.toLowerCase()}.
           </p>
           <p className="max-w-3xl text-gray-600">
-            PROSERGUA es una empresa guatemalteca con seis años de trayectoria en el mercado,
-            dedicada a brindar soluciones integrales en remodelación, construcción, servicios
+            PROSERGUA es una empresa guatemalteca con {new Date().getFullYear() - company.foundedYear}{" "}
+            años de trayectoria en el mercado, dedicada a brindar soluciones integrales en
+            remodelación, construcción, servicios
             eléctricos, auditorías eléctricas y comercialización de suministros para
             construcción y electricidad. A lo largo de estos años hemos tenido la oportunidad
             de colaborar con diversas instituciones y clientes del país, consolidando nuestra

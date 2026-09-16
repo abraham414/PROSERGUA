@@ -48,14 +48,14 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="flex flex-wrap justify-center gap-4">
         {projects.map((project, index) => (
           <button
             key={project.id}
             id={project.id}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className="group relative aspect-square overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+            className="group relative aspect-square w-[calc(50%-0.5rem)] flex-none overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(25%-0.75rem)]"
             aria-label={`Ver en tamaño completo: ${project.category}`}
           >
             <Image

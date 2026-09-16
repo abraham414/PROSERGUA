@@ -5,7 +5,7 @@ import { company } from "@/data/company";
 import { governmentClients } from "@/data/clients";
 
 const stats = [
-  { value: "2020", label: "Año de fundación" },
+  { value: `${company.foundedYear}`, label: "Año de fundación" },
   { value: "25", label: "Personas en el equipo" },
   { value: `${governmentClients.length}`, label: "Instituciones de gobierno atendidas" },
 ];

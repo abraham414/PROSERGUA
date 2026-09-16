@@ -4,6 +4,7 @@ export const services: Service[] = [
   {
     slug: "herreria-estructuras-metalicas",
     name: "Herrería / Estructuras metálicas",
+    category: "Construcción y estructuras",
     shortDescription:
       "Construcción de estructuras metálicas incluyendo diseño, fabricación, montaje e instalación de cubiertas y techos metálicos.",
     description:
@@ -17,6 +18,7 @@ export const services: Service[] = [
   {
     slug: "tuberia-hidraulica",
     name: "Tubería hidráulica",
+    category: "Construcción y estructuras",
     shortDescription:
       "Instalación y montaje de tuberías hidráulicas, incluyendo redes de vapor, agua potable, aguas grises y aguas negras.",
     description:
@@ -30,6 +32,7 @@ export const services: Service[] = [
   {
     slug: "construccion-reforzamiento",
     name: "Construcción / Reforzamiento",
+    category: "Construcción y estructuras",
     shortDescription:
       "Construcción y remodelación integral para espacios residenciales, comerciales e institucionales.",
     description:
@@ -48,6 +51,7 @@ export const services: Service[] = [
   {
     slug: "remodelaciones",
     name: "Remodelaciones",
+    category: "Construcción y estructuras",
     shortDescription:
       "Transformamos y adecuamos espacios mediante remodelaciones integrales.",
     description:
@@ -66,6 +70,7 @@ export const services: Service[] = [
   {
     slug: "electricidad",
     name: "Electricidad",
+    category: "Eléctrico",
     shortDescription:
       "Instalación, mantenimiento y reparación de sistemas eléctricos y sistemas de tierras físicas.",
     description:
@@ -79,6 +84,7 @@ export const services: Service[] = [
   {
     slug: "auditorias-electricas",
     name: "Auditorías eléctricas",
+    category: "Eléctrico",
     shortDescription:
       "Evaluamos el estado, seguridad y eficiencia de las instalaciones eléctricas.",
     description:
@@ -91,6 +97,7 @@ export const services: Service[] = [
   {
     slug: "comercializacion-suministros",
     name: "Comercialización de suministros",
+    category: "Suministros",
     shortDescription:
       "Amplia variedad de suministros y materiales para proyectos de construcción.",
     description:

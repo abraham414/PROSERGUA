@@ -2,6 +2,7 @@ export interface CompanyInfo {
   legalName: string;
   brandName: string;
   tagline: string;
+  foundedYear: number;
   foundedLabel: string;
   teamSizeLabel: string;
   mission: string;
@@ -31,6 +32,7 @@ export interface ContactInfo {
 export interface Service {
   slug: string;
   name: string;
+  category: string;
   shortDescription: string;
   description: string;
   bullets?: string[];

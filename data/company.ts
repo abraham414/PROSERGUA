@@ -4,6 +4,7 @@ export const company: CompanyInfo = {
   legalName: "Proyectos y Servicios de Guatemala",
   brandName: "PROSERGUA",
   tagline: "Proyectos y Servicios de Guatemala",
+  foundedYear: 2020,
   foundedLabel: "Fundada en diciembre de 2020",
   teamSizeLabel: "Equipo de aproximadamente 25 personas entre empleados directos y colaboradores externos",
   mission:
