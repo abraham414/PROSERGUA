@@ -62,6 +62,8 @@ export const company: CompanyInfo = {
   contact: {
     email: "proserguagt@gmail.com",
     phones: ["3725 4237", "2292 3710"],
+    // Número de WhatsApp (3725 4237) en formato internacional para wa.me: 502 + número sin espacios.
+    whatsapp: "50237254237",
     address: "11 Ave. 6ta. calle 11-10 Zona 11 de Mixco, Lo de Fuentes.",
   },
 };

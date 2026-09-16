@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import QuoteForm from "@/components/sections/QuoteForm";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -32,13 +33,19 @@ export default function ContactoPage() {
           <h1 className="max-w-2xl font-heading text-4xl font-extrabold sm:text-5xl">
             ¡Contáctenos!
           </h1>
-          <p className="max-w-xl text-lg text-gray-200">Contáctenos si tiene preguntas.</p>
+          <p className="max-w-xl text-lg text-gray-200">
+            Solicita tu cotización en minutos o contáctanos directamente.
+          </p>
         </Container>
       </section>
 
       <section className="py-20 sm:py-28">
-        <Container className="grid gap-12 lg:grid-cols-2">
-          <div className="flex flex-col gap-8">
+        <Container className="grid gap-12 lg:grid-cols-5">
+          <div className="lg:col-span-3">
+            <QuoteForm />
+          </div>
+
+          <div className="flex flex-col gap-8 lg:col-span-2">
             <SectionHeading title="Información de contacto" />
 
             <a
@@ -82,16 +89,16 @@ export default function ContactoPage() {
               </span>
               <span className="font-semibold text-gray-700">{company.contact.address}</span>
             </a>
-          </div>
 
-          <div className="relative min-h-[320px] overflow-hidden rounded-card shadow-card">
-            <Image
-              src="/images/office/oficina-recepcion.jpg"
-              alt="Oficinas de PROSERGUA"
-              fill
-              sizes="(min-width: 1024px) 480px, 100vw"
-              className="object-cover"
-            />
+            <div className="relative min-h-[220px] overflow-hidden rounded-card shadow-card">
+              <Image
+                src="/images/office/oficina-recepcion.jpg"
+                alt="Oficinas de PROSERGUA"
+                fill
+                sizes="(min-width: 1024px) 400px, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </Container>
       </section>

@@ -28,6 +28,7 @@ export interface ValueProposition {
 export interface ContactInfo {
   email: string;
   phones: string[];
+  whatsapp: string;
   address: string;
 }
 
