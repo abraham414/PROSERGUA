@@ -1,0 +1,33 @@
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { company } from "@/data/company";
+
+export default function Philosophy() {
+  return (
+    <section className="py-20 sm:py-28">
+      <Container className="flex flex-col gap-12">
+        <SectionHeading eyebrow="Filosofía empresarial" title="Misión, visión y valores" align="center" />
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="rounded-card border border-gray-100 bg-white p-8 shadow-card">
+            <h3 className="font-heading text-xl font-bold text-secondary">Misión</h3>
+            <p className="mt-3 text-gray-600">{company.mission}</p>
+          </div>
+          <div className="rounded-card border border-gray-100 bg-white p-8 shadow-card">
+            <h3 className="font-heading text-xl font-bold text-secondary">Visión</h3>
+            <p className="mt-3 text-gray-600">{company.vision}</p>
+          </div>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-3">
+          {company.values.map((value) => (
+            <div key={value.name} className="rounded-card bg-gray-50 p-6">
+              <h4 className="font-heading text-lg font-bold text-neutral-900">{value.name}</h4>
+              <p className="mt-2 text-sm text-gray-600">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}

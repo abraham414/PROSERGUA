@@ -1,0 +1,81 @@
+import type { Metadata } from "next";
+import { Inter, Sora } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { company } from "@/data/company";
+import { siteConfig } from "@/lib/site";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | ${company.tagline}`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} | ${company.tagline}`,
+    description: siteConfig.description,
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: company.legalName,
+    alternateName: siteConfig.name,
+    url: siteConfig.url,
+    email: company.contact.email,
+    telephone: company.contact.phones[0],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: company.contact.address,
+      addressLocality: "Mixco",
+      addressCountry: "GT",
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+  };
+
+  return (
+    <html
+      lang="es"
+      className={`${inter.variable} ${sora.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-white text-gray-700">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
