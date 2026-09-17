@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Card from "@/components/ui/Card";
 import Reveal from "@/components/motion/Reveal";
 
 const team = [
@@ -27,12 +28,12 @@ export default function Team() {
         <div className="grid gap-6 sm:grid-cols-3">
           {team.map((member, index) => (
             <Reveal key={member.title} delay={index * 90}>
-              <div className="h-full rounded-card bg-white p-6 shadow-card">
+              <Card className="h-full p-6 transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none">
                 <h3 className="font-heading text-lg font-bold text-neutral-900">
                   {member.title}
                 </h3>
                 <p className="mt-2 text-sm text-gray-600">{member.description}</p>
-              </div>
+              </Card>
             </Reveal>
           ))}
         </div>

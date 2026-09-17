@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Reveal from "@/components/motion/Reveal";
 import type { Project } from "@/types";
 
@@ -9,10 +9,26 @@ interface ProjectGalleryProps {
   projects: Project[];
 }
 
+const CLOSE_DURATION_MS = 200;
+
 export default function ProjectGallery({ projects }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [visible, setVisible] = useState(false);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const close = useCallback(() => setActiveIndex(null), []);
+  const open = useCallback((index: number) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveIndex(index);
+  }, []);
+
+  const close = useCallback(() => {
+    setVisible(false);
+    closeTimeoutRef.current = setTimeout(() => setActiveIndex(null), CLOSE_DURATION_MS);
+  }, []);
+
   const showPrev = useCallback(
     () => setActiveIndex((current) => (current === null ? null : (current - 1 + projects.length) % projects.length)),
     [projects.length],
@@ -21,6 +37,29 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
     () => setActiveIndex((current) => (current === null ? null : (current + 1) % projects.length)),
     [projects.length],
   );
+
+  // Trigger the enter transition only on the open/close boundary, not on every
+  // prev/next index change (that swap gets its own crossfade on the image).
+  useEffect(() => {
+    if (activeIndex === null) return;
+    const raf = requestAnimationFrame(() => setVisible(true));
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex !== null]);
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [activeIndex]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -59,7 +98,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
             <button
               id={project.id}
               type="button"
-              onClick={() => setActiveIndex(index)}
+              onClick={() => open(index)}
               className="group relative block aspect-square w-full overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
               aria-label={`Ver en tamaño completo: ${project.category}`}
             >
@@ -83,14 +122,16 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
           role="dialog"
           aria-modal="true"
           aria-label={`${active.category}: ${active.title}`}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-neutral-900/90 p-4 sm:p-8"
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-neutral-900/90 p-4 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:p-8 ${
+            visible ? "opacity-100" : "opacity-0"
+          }`}
           onClick={close}
         >
           <button
             type="button"
             onClick={close}
             aria-label="Cerrar"
-            className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5" aria-hidden="true">
               <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round" />
@@ -104,7 +145,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
               showPrev();
             }}
             aria-label="Imagen anterior"
-            className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:left-6"
+            className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:left-6"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5" aria-hidden="true">
               <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -112,19 +153,22 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
           </button>
 
           <div
-            className="flex w-full max-w-3xl flex-col gap-3"
+            className={`flex w-full max-w-3xl flex-col gap-3 transition-transform duration-200 ease-out motion-reduce:transition-none ${
+              visible ? "scale-100" : "scale-95"
+            }`}
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative aspect-[4/3] w-full">
               <Image
+                key={active.id}
                 src={active.image.src}
                 alt={active.image.alt}
                 fill
                 sizes="100vw"
-                className="rounded-card object-contain"
+                className="rounded-card object-contain [animation:image-settle_0.3s_ease-out_both]"
               />
             </div>
-            <p className="text-center text-sm font-semibold text-white">
+            <p key={`${active.id}-caption`} className="text-center text-sm font-semibold text-white [animation:fade-up_0.3s_ease-out_both]">
               {active.category} · {active.title}
             </p>
           </div>
@@ -136,7 +180,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
               showNext();
             }}
             aria-label="Imagen siguiente"
-            className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:right-6"
+            className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:right-6"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5" aria-hidden="true">
               <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
