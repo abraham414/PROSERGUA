@@ -1,6 +1,5 @@
 import Hero from "@/components/sections/Hero";
 import Intro from "@/components/sections/Intro";
-import ValueProposition from "@/components/sections/ValueProposition";
 import ServicesInteractive from "@/components/sections/ServicesInteractive";
 import Stats from "@/components/sections/Stats";
 import Projects from "@/components/sections/Projects";
@@ -13,7 +12,6 @@ export default function HomePage() {
     <>
       <Hero />
       <Intro />
-      <ValueProposition />
       <ServicesInteractive />
       <Stats />
       <Projects />
