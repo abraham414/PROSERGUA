@@ -8,8 +8,10 @@ para construcción y electricidad.
 ## Stack
 
 - **Next.js 16** (App Router, TypeScript estricto)
-- **React 19**, Server Components por defecto; Client Components solo en el
-  menú móvil y la galería de proyectos (interacción real).
+- **React 19**, Server Components por defecto; Client Components solo donde
+  hay interacción real (menú móvil, galería de proyectos, formulario de
+  cotización, servicios interactivos, animaciones de scroll-reveal y
+  contador en `components/motion/`).
 - **Tailwind CSS v4**, tokens de diseño centralizados en `app/globals.css`
   (`@theme`): colores de marca, radios, sombras y fuentes.
 - Fuentes **Inter** (texto) y **Sora** (títulos) vía `next/font/google`
@@ -34,8 +36,11 @@ app/                    Rutas (App Router)
 components/
   layout/               Navbar, Footer
   ui/                   Button, Card, Container, Logo, SectionHeading
-  sections/             Hero, About, Services, ValueProposition, Philosophy,
-                         Projects, ProjectGallery, Clients, ContactCTA
+  motion/               Reveal (scroll-reveal), Counter, hook useInView
+  sections/             Hero, Intro, ServicesGrid, ServicesInteractive,
+                         ValueProposition, Philosophy, Stats, Projects,
+                         ProjectGallery, Clients, ContactCTA, QuoteForm,
+                         ClosingStatement
 data/                   Contenido corporativo separado de la presentación:
                          company.ts, services.ts, projects.ts, clients.ts
 types/                  Tipos compartidos (Service, Project, Client, etc.)
@@ -43,6 +48,19 @@ lib/                    Utilidades (siteConfig, absoluteUrl)
 public/images/          Fotografías reales de PROSERGUA (logo, equipo,
                          oficina, servicios, clientes, marcas, fondos)
 ```
+
+### Carpetas que no son parte del sitio
+
+En la raíz del proyecto también aparecen `.agents/`, `.claude/`, `.impeccable/`
+y `skills-lock.json`. No son código del sitio web ni afectan lo que ve un
+visitante: son "skills" (instrucciones) instaladas para los asistentes de IA
+(Claude Code y compatibles) que ayudan a desarrollar el proyecto. `.agents/skills`
+y `.claude/skills` son intencionalmente el mismo contenido duplicado (cada
+asistente busca sus skills en una ruta distinta) y `skills-lock.json` registra
+de dónde vino cada una para poder actualizarlas. `.impeccable/critique/`
+guarda revisiones de diseño generadas por una de esas skills, a modo de
+historial. Si algún día dejan de usarse los asistentes de IA en este
+proyecto, las cuatro se pueden borrar sin romper el sitio.
 
 ## Contenido e identidad visual
 
@@ -109,10 +127,13 @@ las rutas:
 
 Otras decisiones de seguridad:
 
-- Sin formulario de contacto con backend: los datos de contacto se muestran
-  directamente (email, teléfono, dirección con enlace a Google Maps por
-  búsqueda de texto, sin coordenadas inventadas). Si más adelante se requiere
-  un formulario con envío real, deberá evaluarse validación server-side,
+- Sin backend ni envío de formularios propio: los datos de contacto se
+  muestran directamente (email, teléfono, dirección con enlace a Google Maps
+  por búsqueda de texto, sin coordenadas inventadas). El formulario de
+  cotización (`components/sections/QuoteForm.tsx`) es 100% cliente: arma el
+  mensaje con los datos ingresados y lo entrega vía enlaces `wa.me`/`mailto`,
+  sin enviar nada a un servidor propio. Si más adelante se requiere un envío
+  real desde el servidor, deberá evaluarse validación server-side,
   sanitización, rate limiting y manejo seguro de errores antes de
   implementarlo.
 - Sin `dangerouslySetInnerHTML` con contenido dinámico o de usuario; el único
