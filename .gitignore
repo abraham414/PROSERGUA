@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Obsidian vault: this folder doubles as an Obsidian vault. Its config and the
+# internal business wiki (client/meeting/decision notes) are not source code
+# and must never be pushed to the public code repo.
+/.obsidian/
+/Wiki/
