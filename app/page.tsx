@@ -1,22 +1,22 @@
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Services from "@/components/sections/Services";
-import ValueProposition from "@/components/sections/ValueProposition";
-import Philosophy from "@/components/sections/Philosophy";
+import Intro from "@/components/sections/Intro";
+import ServicesInteractive from "@/components/sections/ServicesInteractive";
+import Stats from "@/components/sections/Stats";
 import Projects from "@/components/sections/Projects";
 import Clients from "@/components/sections/Clients";
+import ClosingStatement from "@/components/sections/ClosingStatement";
 import ContactCTA from "@/components/sections/ContactCTA";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Services />
-      <ValueProposition />
-      <Philosophy />
+      <Intro />
+      <ServicesInteractive />
+      <Stats />
       <Projects />
       <Clients />
+      <ClosingStatement />
       <ContactCTA />
     </>
   );

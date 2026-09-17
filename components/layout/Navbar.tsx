@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "@/components/ui/Logo";
 import Container from "@/components/ui/Container";
 
@@ -17,10 +17,28 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
-      <Container className="flex h-16 items-center justify-between sm:h-20">
+    <header
+      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-shadow duration-200 supports-[backdrop-filter]:bg-white/80 ${
+        scrolled ? "border-gray-100 shadow-card" : "border-transparent"
+      }`}
+    >
+      <Container
+        className={`flex items-center justify-between transition-[height] duration-200 ${
+          scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
+        }`}
+      >
         <Link href="/" className="flex items-center" aria-label="PROSERGUA, ir al inicio">
           <Logo />
         </Link>

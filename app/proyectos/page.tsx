@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ProjectGallery from "@/components/sections/ProjectGallery";
+import Reveal from "@/components/motion/Reveal";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
@@ -13,10 +14,14 @@ export default function ProyectosPage() {
     <>
       <section className="bg-secondary py-20 text-white sm:py-28">
         <Container className="flex flex-col gap-4">
-          <span className="text-sm font-bold text-primary">Nuestro trabajo</span>
-          <h1 className="max-w-2xl font-heading text-4xl font-extrabold sm:text-5xl">
-            Proyectos destacados
-          </h1>
+          <Reveal>
+            <span className="text-sm font-bold text-primary">Nuestro trabajo</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="max-w-2xl font-heading text-4xl font-extrabold sm:text-5xl">
+              Proyectos destacados
+            </h1>
+          </Reveal>
         </Container>
       </section>
 
