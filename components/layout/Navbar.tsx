@@ -95,21 +95,27 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`overflow-hidden border-t border-gray-100 bg-white transition-[max-height] duration-200 ease-in-out md:hidden ${
-          isOpen ? "max-h-96" : "max-h-0"
+        className={`grid overflow-hidden border-t border-gray-100 bg-white transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none md:hidden ${
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <nav aria-label="Navegación móvil">
+        <nav aria-label="Navegación móvil" className="overflow-hidden">
           <ul className="flex flex-col gap-1 px-4 py-3">
-            {navLinks.map((link) => {
+            {navLinks.map((link, index) => {
               const isActive = pathname === link.href;
               return (
-                <li key={link.href}>
+                <li
+                  key={link.href}
+                  className={`transition-all duration-300 ease-out motion-reduce:transition-none ${
+                    isOpen ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
+                  }`}
+                  style={{ transitionDelay: isOpen ? `${index * 40}ms` : "0ms" }}
+                >
                   <Link
                     href={link.href}
                     aria-current={isActive ? "page" : undefined}
                     onClick={() => setIsOpen(false)}
-                    className={`block rounded-button px-3 py-2.5 text-base font-semibold ${
+                    className={`block rounded-button px-3 py-2.5 text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary ${
                       isActive ? "bg-secondary/10 text-secondary" : "text-gray-700 hover:bg-gray-50"
                     }`}
                   >
