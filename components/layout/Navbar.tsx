@@ -39,7 +39,7 @@ export default function Navbar() {
           scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
         }`}
       >
-        <Link href="/" className="flex items-center" aria-label="PROSERGUA, ir al inicio">
+        <Link href="/" prefetch={false} className="flex items-center" aria-label="PROSERGUA, ir al inicio">
           <Logo />
         </Link>
 
@@ -51,6 +51,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     aria-current={isActive ? "page" : undefined}
                     className={`relative rounded-button px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary ${
                       isActive
@@ -113,6 +114,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    prefetch={false}
                     aria-current={isActive ? "page" : undefined}
                     onClick={() => setIsOpen(false)}
                     className={`block rounded-button px-3 py-2.5 text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary ${

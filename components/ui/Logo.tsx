@@ -11,7 +11,7 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <Image
-        src="/images/logo/prosergua-isotype.png"
+        src="/images/logo/prosergua-isotype-nav.webp"
         alt="PROSERGUA"
         width={40}
         height={40}

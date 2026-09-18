@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Contacto",
   description: `Contáctanos: ${company.contact.email}, ${company.contact.phones.join(" / ")}. ${company.contact.address}`,
   alternates: {
-    canonical: "/contacto",
+    canonical: "/contacto/",
   },
 };
 
@@ -25,7 +25,7 @@ export default function ContactoPage() {
       <section className="relative overflow-hidden bg-secondary py-20 text-white sm:py-28">
         <div className="absolute inset-0">
           <Image
-            src="/images/backgrounds/tecnico-tablero.jpg"
+            src="/images/backgrounds/tecnico-tablero.webp"
             alt="Técnico de PROSERGUA trabajando en un tablero eléctrico"
             fill
             priority
@@ -111,7 +111,7 @@ export default function ContactoPage() {
             <Reveal delay={280}>
               <div className="relative min-h-[220px] overflow-hidden rounded-card shadow-card">
                 <Image
-                  src="/images/office/oficina-recepcion.jpg"
+                  src="/images/office/oficina-recepcion.webp"
                   alt="Oficinas de PROSERGUA"
                   fill
                   sizes="(min-width: 1024px) 400px, 100vw"

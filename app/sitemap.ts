@@ -2,8 +2,13 @@ import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { siteConfig } from "@/lib/site";
 
+// Requerido por el export estático (output: "export").
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/nosotros", "/servicios", "/proyectos", "/contacto"].map(
+  // Con trailingSlash: true (necesario para el export estático en Hostinger)
+  // cada ruta real termina en "/" — el sitemap debe reflejar esa misma URL.
+  const staticRoutes = ["/", "/nosotros/", "/servicios/", "/proyectos/", "/contacto/"].map(
     (route) => ({
       url: `${siteConfig.url}${route}`,
       lastModified: new Date(),
@@ -11,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const serviceRoutes = services.map((service) => ({
-    url: `${siteConfig.url}/servicios/${service.slug}`,
+    url: `${siteConfig.url}/servicios/${service.slug}/`,
     lastModified: new Date(),
   }));
 

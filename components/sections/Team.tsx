@@ -30,7 +30,7 @@ export default function Team() {
           <Reveal>
             <div className="relative aspect-square w-full overflow-hidden rounded-card shadow-card">
               <Image
-                src="/images/team/tecnicos-panel.jpg"
+                src="/images/team/tecnicos-panel.webp"
                 alt="Técnicos de PROSERGUA interviniendo un tablero eléctrico"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

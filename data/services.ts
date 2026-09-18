@@ -11,7 +11,7 @@ export const services: Service[] = [
       "Construcción de estructuras metálicas incluyendo diseño, fabricación, montaje e instalación de cubiertas y techos metálicos.",
     bullets: ["Diseño", "Fabricación", "Montaje", "Instalación de cubiertas y techos metálicos"],
     image: {
-      src: "/images/services/herreria.jpg",
+      src: "/images/services/herreria.webp",
       alt: "Estructura metálica y techo instalado por PROSERGUA",
     },
   },
@@ -25,7 +25,7 @@ export const services: Service[] = [
       "Instalación y montaje de tuberías hidráulicas, incluyendo redes de vapor, agua potable, aguas grises y aguas negras.",
     bullets: ["Redes de vapor", "Agua potable", "Aguas grises", "Aguas negras"],
     image: {
-      src: "/images/services/tuberia-hidraulica.jpg",
+      src: "/images/services/tuberia-hidraulica.webp",
       alt: "Instalación de tubería hidráulica industrial",
     },
   },
@@ -44,7 +44,7 @@ export const services: Service[] = [
       "Adecuaciones",
     ],
     image: {
-      src: "/images/services/construccion-remodelacion.jpg",
+      src: "/images/services/construccion-remodelacion.webp",
       alt: "Trabajo de construcción y reforzamiento en obra",
     },
   },
@@ -63,7 +63,7 @@ export const services: Service[] = [
       "Pintura y mejoras generales",
     ],
     image: {
-      src: "/images/services/remodelaciones.jpg",
+      src: "/images/services/remodelaciones.webp",
       alt: "Espacio remodelado con divisiones de cristal",
     },
   },
@@ -77,7 +77,7 @@ export const services: Service[] = [
       "Instalación, mantenimiento y reparación de sistemas eléctricos y elaboración e instalación de sistemas de tierras físicas.",
     bullets: ["Instalación", "Mantenimiento", "Reparación", "Sistemas de tierras físicas"],
     image: {
-      src: "/images/services/electricidad.jpg",
+      src: "/images/services/electricidad.webp",
       alt: "Tablero eléctrico industrial intervenido por un técnico",
     },
   },
@@ -90,7 +90,7 @@ export const services: Service[] = [
     description:
       "Evaluamos el estado, seguridad y eficiencia de las instalaciones eléctricas, identificando riesgos y oportunidades de mejora para garantizar un funcionamiento confiable y seguro.",
     image: {
-      src: "/images/services/auditorias-electricas.jpg",
+      src: "/images/services/auditorias-electricas.webp",
       alt: "Técnico realizando una auditoría eléctrica con equipo especializado",
     },
   },
@@ -103,7 +103,7 @@ export const services: Service[] = [
     description:
       "Ofrecemos una amplia variedad de suministros y materiales para proyectos de construcción. Promovemos productos de la mejor calidad para atender las necesidades de cada proyecto.",
     image: {
-      src: "/images/services/suministros.jpg",
+      src: "/images/services/suministros.webp",
       alt: "Bodega de suministros metálicos para construcción",
     },
   },

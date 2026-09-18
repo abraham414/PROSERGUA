@@ -1,0 +1,38 @@
+# Equivalente en Apache de las cabeceras de seguridad que antes vivían en
+# next.config.ts (headers()) — ese mecanismo no existe en un export estático,
+# así que Hostinger las aplica aquí. Mismos valores, sin cambios.
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+</IfModule>
+
+# Página 404 propia del sitio (out/404.html) en vez de la genérica de Apache.
+# Sigue respondiendo con status 404 real, así que Google no la indexa.
+ErrorDocument 404 /404.html
+
+# Por si el Apache de Hostinger no trae .webp en su mime.types por defecto.
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# Compresión — ayuda a Core Web Vitals si el hosting no la trae activada ya.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# El HTML puede cambiar en cada despliegue: que el navegador siempre revalide.
+# Los archivos bajo /_next/static/ llevan hash en el nombre (cambian de URL
+# cuando cambia el contenido), así que sí pueden cachearse por mucho tiempo.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+</IfModule>

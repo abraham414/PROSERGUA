@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "prosergua-static-export",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve@latest", "-l", "4173", "out"],
+      "port": 4173
     }
   ]
 }

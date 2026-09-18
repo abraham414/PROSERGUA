@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Proyectos",
   description: "Galería de proyectos destacados realizados por PROSERGUA.",
   alternates: {
-    canonical: "/proyectos",
+    canonical: "/proyectos/",
   },
 };
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Herrería, tubería hidráulica, construcción, remodelaciones, electricidad, auditorías eléctricas y comercialización de suministros.",
   alternates: {
-    canonical: "/servicios",
+    canonical: "/servicios/",
   },
 };
 

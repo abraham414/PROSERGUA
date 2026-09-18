@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     alternateName: siteConfig.name,
     url: siteConfig.url,
     logo: absoluteUrl("/images/logo/prosergua-isotype.png"),
-    image: absoluteUrl("/images/team/equipo-rooftop.jpg"),
+    image: absoluteUrl("/images/team/equipo-rooftop.webp"),
     email: company.contact.email,
     telephone: company.contact.phones[0],
     areaServed: {

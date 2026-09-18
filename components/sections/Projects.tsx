@@ -27,6 +27,7 @@ export default function Projects() {
             <Reveal key={project.id} delay={(index % 3) * 90}>
               <Link
                 href={`/proyectos#${project.id}`}
+                prefetch={false}
                 className="group relative block aspect-[4/5] overflow-hidden rounded-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                 aria-label={`Ver en la galería: ${project.category}`}
               >

@@ -34,7 +34,7 @@ export default function ServicesGrid({ ctaLabel }: ServicesGridProps) {
                 delay={((groupIndex * 4 + itemIndex) % 4) * 80}
                 className="w-full flex-none sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
               >
-                <Link href={`/servicios/${service.slug}`} className="group block h-full">
+                <Link href={`/servicios/${service.slug}`} prefetch={false} className="group block h-full">
                   <Card className="flex h-full flex-col overflow-hidden">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
@@ -63,7 +63,7 @@ export default function ServicesGrid({ ctaLabel }: ServicesGridProps) {
       ))}
 
       <Reveal>
-        <Link href="/contacto" className="group block">
+        <Link href="/contacto" prefetch={false} className="group block">
           <Card className="flex flex-col items-start gap-2 border-2 border-dashed border-secondary/30 bg-transparent p-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="font-heading text-lg font-bold text-secondary">
