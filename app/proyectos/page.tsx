@@ -7,6 +7,9 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Proyectos",
   description: "Galería de proyectos destacados realizados por PROSERGUA.",
+  alternates: {
+    canonical: "/proyectos",
+  },
 };
 
 export default function ProyectosPage() {

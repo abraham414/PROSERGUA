@@ -144,12 +144,34 @@ Otras decisiones de seguridad:
 
 ## SEO
 
-- `generateMetadata` por página (title, description, Open Graph).
+- `generateMetadata`/`metadata` por página (title, description, Open Graph,
+  Twitter Card) y una URL canónica (`alternates.canonical`) por ruta, para
+  evitar contenido duplicado.
 - `app/sitemap.ts` y `app/robots.ts` generados con las APIs nativas de Next.js.
-- JSON-LD `Organization` y `WebSite` en `app/layout.tsx`, con datos reales
-  (sin inventar coordenadas, horarios ni redes sociales no documentadas).
+- `app/opengraph-image.tsx` genera la imagen para compartir en redes/WhatsApp
+  (logo + nombre + tagline reales, sin contenido inventado).
+- `app/manifest.ts` (Web App Manifest) para "agregar a inicio" en Android.
+- JSON-LD `Organization`/`GeneralContractor` y `WebSite` en `app/layout.tsx`,
+  con datos reales (sin inventar coordenadas, horarios, precios ni redes
+  sociales no documentadas).
 - Imágenes optimizadas con `next/image` (AVIF/WebP, tamaños responsive,
   lazy loading por defecto).
+
+Antes de darlo por terminado, valida el sitio ya desplegado (URL pública)
+con estas herramientas de Google, que no se pueden correr desde el código:
+
+1. [Rich Results Test](https://search.google.com/test/rich-results): confirma
+   que el JSON-LD `Organization`/`GeneralContractor` se lea sin errores.
+2. [PageSpeed Insights](https://pagespeed.web.dev/): mide Core Web Vitals
+   (LCP, INP, CLS) reales, que sí son factor de posicionamiento.
+3. [Google Search Console](https://search.google.com/search-console): hay que
+   verificar la propiedad del dominio y enviar `sitemap.xml` manualmente —
+   esto requiere la cuenta de Google del negocio, no se puede automatizar.
+
+Ninguna de estas herramientas ni el cumplimiento técnico garantiza aparecer
+"de primero" en Google: eso también depende de competencia, antigüedad del
+dominio, enlaces entrantes y señales fuera del sitio (por ejemplo, el perfil
+de Google Business).
 
 ## Despliegue
 

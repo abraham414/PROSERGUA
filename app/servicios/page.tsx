@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Servicios",
   description:
     "Herrería, tubería hidráulica, construcción, remodelaciones, electricidad, auditorías eléctricas y comercialización de suministros.",
+  alternates: {
+    canonical: "/servicios",
+  },
 };
 
 export default function ServiciosPage() {

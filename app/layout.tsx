@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Sora } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { company } from "@/data/company";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,17 +32,32 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | ${company.tagline}`,
     description: siteConfig.description,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | ${company.tagline}`,
+    description: siteConfig.description,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1a336a",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "GeneralContractor"],
     name: company.legalName,
     alternateName: siteConfig.name,
     url: siteConfig.url,
+    logo: absoluteUrl("/images/logo/prosergua-isotype.png"),
+    image: absoluteUrl("/images/team/equipo-rooftop.jpg"),
     email: company.contact.email,
     telephone: company.contact.phones[0],
+    areaServed: {
+      "@type": "Country",
+      name: "Guatemala",
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: company.contact.address,

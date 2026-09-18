@@ -10,6 +10,9 @@ import { gmailComposeHref } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contacto",
   description: `Contáctanos: ${company.contact.email}, ${company.contact.phones.join(" / ")}. ${company.contact.address}`,
+  alternates: {
+    canonical: "/contacto",
+  },
 };
 
 export default function ContactoPage() {
