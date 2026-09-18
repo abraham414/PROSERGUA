@@ -2,6 +2,7 @@ import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import Container from "@/components/ui/Container";
 import { company } from "@/data/company";
+import { gmailComposeHref } from "@/lib/site";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -48,7 +49,9 @@ export default function Footer() {
           <ul className="mt-4 flex flex-col gap-2 text-base text-gray-200">
             <li>
               <a
-                href={`mailto:${company.contact.email}`}
+                href={gmailComposeHref(company.contact.email)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 {company.contact.email}

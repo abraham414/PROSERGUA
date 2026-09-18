@@ -12,6 +12,14 @@ export function absoluteUrl(path: string): string {
 }
 
 /**
+ * Enlace a Gmail (en vez de mailto:) para que "escribirnos" abra directamente
+ * un correo nuevo en Gmail, ya que ese es el correo real de la empresa.
+ */
+export function gmailComposeHref(email: string): string {
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+}
+
+/**
  * Número de años de trayectoria "en curso" desde un mes/año de fundación,
  * contando el año de fundación como el primero (igual a como PROSERGUA lo
  * comunica en su presentación oficial: ya en su sexto año antes de cumplirse
