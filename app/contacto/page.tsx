@@ -5,6 +5,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import QuoteForm from "@/components/sections/QuoteForm";
 import Reveal from "@/components/motion/Reveal";
 import { company } from "@/data/company";
+import { gmailComposeHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -57,7 +58,9 @@ export default function ContactoPage() {
 
             <Reveal delay={120}>
               <a
-                href={`mailto:${company.contact.email}`}
+                href={gmailComposeHref(company.contact.email)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 rounded-card border border-gray-100 p-5 transition-colors hover:border-secondary"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-neutral-900">
