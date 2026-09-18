@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "Nosotros",
   description:
     "Conoce a PROSERGUA: empresa familiar guatemalteca fundada en 2020, nuestro equipo, misión, visión y valores.",
+  alternates: {
+    canonical: "/nosotros",
+  },
 };
 
 export default function NosotrosPage() {
