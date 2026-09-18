@@ -61,7 +61,7 @@ export default function ServicesInteractive() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-neutral-900/85 to-transparent p-6">
-                <p className="text-sm text-gray-100">{active.shortDescription}</p>
+                <p className="text-base text-gray-100">{active.shortDescription}</p>
                 <span className="mt-2 inline-block text-sm font-semibold text-primary">
                   Ver servicio
                 </span>
@@ -122,7 +122,7 @@ export default function ServicesInteractive() {
                             className="object-cover"
                           />
                         </div>
-                        <p className="text-sm text-gray-600">{service.shortDescription}</p>
+                        <p className="text-base text-gray-600">{service.shortDescription}</p>
                         <Link
                           href={`/servicios/${service.slug}`}
                           className="text-sm font-semibold text-secondary hover:underline"

@@ -19,8 +19,8 @@ export default function Footer() {
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4 lg:col-span-2">
           <Logo variant="light" />
-          <p className="max-w-sm text-sm text-gray-200">{company.legalName}</p>
-          <p className="max-w-sm text-sm text-gray-300">{company.closingStatement}</p>
+          <p className="max-w-sm text-base text-gray-200">{company.legalName}</p>
+          <p className="max-w-sm text-base text-gray-300">{company.closingStatement}</p>
         </div>
 
         <div>
@@ -45,7 +45,7 @@ export default function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
             Contacto
           </h3>
-          <ul className="mt-4 flex flex-col gap-2 text-sm text-gray-200">
+          <ul className="mt-4 flex flex-col gap-2 text-base text-gray-200">
             <li>
               <a
                 href={`mailto:${company.contact.email}`}

@@ -5,7 +5,9 @@ import { company } from "@/data/company";
 import { services } from "@/data/services";
 
 const inputClasses =
-  "w-full rounded-button border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/15";
+  // text-base (not text-sm) on purpose: iOS Safari auto-zooms the page when
+  // focusing an input with a computed font-size under 16px.
+  "w-full rounded-button border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/15";
 
 const labelClasses = "text-sm font-semibold text-gray-700";
 
