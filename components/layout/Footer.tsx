@@ -33,6 +33,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  prefetch={false}
                   className="text-sm text-gray-200 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   {link.label}

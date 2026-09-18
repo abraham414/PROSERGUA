@@ -6,6 +6,9 @@ import { company } from "@/data/company";
 export const alt = `${company.brandName} — ${company.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+// Requerido por el export estático: sin servidor, esta imagen solo puede
+// generarse una vez durante `next build`, no bajo demanda.
+export const dynamic = "force-static";
 
 export default async function Image() {
   const logoData = await readFile(

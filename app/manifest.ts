@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { company } from "@/data/company";
 import { siteConfig } from "@/lib/site";
 
+// Requerido por el export estático (output: "export").
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: `${company.brandName} — ${company.tagline}`,

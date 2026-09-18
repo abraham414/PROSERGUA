@@ -18,8 +18,10 @@ para construcción y electricidad.
   (se descargan en build y se sirven desde el propio dominio, sin llamadas a
   Google en tiempo de ejecución).
 - Sin base de datos, sin autenticación, sin backend ni APIs propias: el sitio
-  es 100% estático (`○ Static` / `● SSG` en la salida de `next build`), lo
-  que reduce la superficie de ataque.
+  es 100% estático, exportado como HTML/CSS/JS puro (`output: "export"` en
+  `next.config.ts`) para hosting compartido sin Node.js (Hostinger). Reduce
+  la superficie de ataque y no depende de ningún servidor Next.js corriendo
+  en producción.
 
 ## Estructura
 
@@ -89,7 +91,8 @@ npm run dev       # http://localhost:3000
 ```bash
 npm run lint       # ESLint (eslint-config-next)
 npx tsc --noEmit   # TypeScript estricto
-npm run build      # Build de producción + generación de tipos de rutas
+npm run build      # Genera el sitio estático en out/
+npm run serve      # Sirve out/ localmente (revisa el puerto que muestre la terminal) para probarlo tal cual quedará en Hostinger
 ```
 
 ## Variables de entorno
@@ -109,8 +112,9 @@ Nunca deben commitearse secretos: actualmente el proyecto no usa ninguno.
 
 ## Seguridad
 
-Cabeceras configuradas en `next.config.ts` (`headers()`), aplicadas a todas
-las rutas:
+Cabeceras configuradas en `public/.htaccess` (Apache/Hostinger; el export
+estático no tiene servidor Next.js para aplicarlas vía `next.config.ts`),
+aplicadas a todas las rutas:
 
 - **Content-Security-Policy**: diseñada para las dependencias reales del
   proyecto (sin scripts, estilos ni imágenes de terceros). Usa
@@ -173,24 +177,57 @@ Ninguna de estas herramientas ni el cumplimiento técnico garantiza aparecer
 dominio, enlaces entrantes y señales fuera del sitio (por ejemplo, el perfil
 de Google Business).
 
-## Despliegue
+## Despliegue (Hostinger, hosting compartido)
 
-El proyecto no depende de infraestructura propia: es un sitio Next.js
-completamente estático, listo para cualquier plataforma con soporte nativo
-para Next.js (build automatizado, HTTPS, CDN, variables de entorno por
-entorno). Antes de publicar en el dominio oficial:
+El sitio se exporta como HTML/CSS/JS estático — no necesita Node.js en el
+servidor. Pasos para publicarlo en Hostinger:
 
-1. Configurar `NEXT_PUBLIC_SITE_URL` con el dominio definitivo.
-2. Verificar que las cabeceras de seguridad de `next.config.ts` se apliquen
-   también a nivel de la plataforma de hosting (algunas plataformas
-   permiten o requieren configuración adicional para HSTS a nivel de DNS/CDN).
-3. Ejecutar `npm run build` como parte del pipeline de CI/CD.
+1. Si agregaste fotos nuevas en `public/images/`, primero
+   `npm run optimize-images` (ver "Mantenimiento" más abajo).
+2. Confirmar `NEXT_PUBLIC_SITE_URL` en `.env.local` con el dominio
+   definitivo (`https://www.prosergua.com`, sin slash final).
+3. `npm run build` — genera la carpeta `out/` con el sitio completo,
+   incluyendo `.htaccess` (copiado desde `public/.htaccess`).
+4. Opcional: `npm run serve` para revisar `out/` localmente antes de subirlo.
+5. Subir **todo el contenido de `out/`** (no la carpeta `out/` en sí, sino
+   lo que hay adentro, incluyendo `.htaccess` que es un archivo oculto) a
+   `public_html/` en el Administrador de archivos de hPanel, o por FTP/SFTP.
+6. En hPanel, activar el certificado SSL del dominio (Hostinger lo emite
+   gratis) para que el sitio cargue por HTTPS — varias de las cabeceras de
+   `.htaccess` (HSTS, `upgrade-insecure-requests`) lo asumen.
+
+Cada vez que se actualice contenido (`data/*.ts`, textos, fotos), hay que
+repetir el build (paso 3) y volver a subir el contenido de `out/`; no hay
+despliegue automático porque no hay servidor corriendo el proyecto.
+
+### Problema conocido (no afecta a visitantes ni a Google)
+
+En desarrollo aparecen errores 404 en la consola del navegador para unos
+archivos internos de Next.js (`__next.<ruta>.__PAGE__.txt`) que el propio
+framework pide para acelerar la navegación entre páginas sin recargar. Es
+un problema conocido de esta versión de Next.js con exportación estática +
+`trailingSlash`, no de este proyecto: cada página sigue cargando completa y
+correctamente (verificado con clics reales y con carga directa de URLs),
+tanto para visitantes como para Googlebot. Se puede ignorar; si una futura
+versión estable de Next.js lo corrige, esos errores desaparecerán solos al
+actualizar la dependencia.
 
 ## Mantenimiento
 
 Todo el contenido corporativo vive en `data/*.ts`, separado de los
 componentes visuales. Para actualizar textos, servicios, proyectos o
 clientes no es necesario tocar el JSX de los componentes.
+
+**Fotos nuevas**: como el sitio es estático, no hay servidor que optimice
+imágenes al vuelo. Al agregar una foto:
+
+1. Colócala como `.jpg`/`.jpeg` en la carpeta que corresponda dentro de
+   `public/images/` (`backgrounds`, `team`, `office`, `services`, `clients`
+   o `brands`).
+2. Corre `npm run optimize-images` — convierte cada `.jpg` nueva a `.webp`
+   (redimensionada según esa carpeta; ver `scripts/optimize-images.mjs`
+   para los tamaños exactos). El `.jpg` original no se borra ni se toca.
+3. Usa el `.webp` resultante en `data/*.ts` o el componente correspondiente.
 
 Información pendiente de confirmar por PROSERGUA (marcada explícitamente en
 el código donde aplica):

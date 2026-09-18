@@ -48,7 +48,7 @@ export default function Hero() {
       {/* Mobile: full-bleed background photo with overlay. */}
       <div className="absolute inset-0 sm:hidden">
         <Image
-          src="/images/team/equipo-rooftop.jpg"
+          src="/images/team/equipo-rooftop.webp"
           alt="Equipo técnico de PROSERGUA en obra"
           fill
           priority
@@ -64,7 +64,7 @@ export default function Hero() {
         <div className="absolute inset-y-0 left-[45%] right-0 overflow-hidden [clip-path:polygon(8%_0,100%_0,100%_100%,0%_100%)]">
           <div ref={imageWrapRef} className="absolute -inset-y-16 inset-x-0">
             <Image
-              src="/images/team/equipo-rooftop.jpg"
+              src="/images/team/equipo-rooftop.webp"
               alt="Equipo técnico de PROSERGUA en obra"
               fill
               priority

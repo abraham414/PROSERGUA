@@ -50,6 +50,7 @@ export default function ServicesInteractive() {
 
             <Link
               href={`/servicios/${active.slug}`}
+              prefetch={false}
               className="group relative block aspect-[4/3] overflow-hidden rounded-card shadow-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
             >
               <Image
@@ -125,6 +126,7 @@ export default function ServicesInteractive() {
                         <p className="text-base text-gray-600">{service.shortDescription}</p>
                         <Link
                           href={`/servicios/${service.slug}`}
+                          prefetch={false}
                           className="text-sm font-semibold text-secondary hover:underline"
                         >
                           Ver servicio →
@@ -139,7 +141,7 @@ export default function ServicesInteractive() {
         </div>
 
         <Reveal>
-          <Link href="/servicios" className="inline-block text-sm font-semibold text-secondary hover:underline">
+          <Link href="/servicios" prefetch={false} className="inline-block text-sm font-semibold text-secondary hover:underline">
             Ver todos los servicios →
           </Link>
         </Reveal>

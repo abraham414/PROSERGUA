@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     title: service.name,
     description: service.shortDescription,
     alternates: {
-      canonical: `/servicios/${service.slug}`,
+      canonical: `/servicios/${service.slug}/`,
     },
   };
 }
@@ -58,7 +58,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
         <Container className="relative flex flex-col gap-4">
           <Reveal>
-            <Link href="/servicios" className="text-sm font-semibold text-primary hover:underline">
+            <Link href="/servicios" prefetch={false} className="text-sm font-semibold text-primary hover:underline">
               ← Volver a servicios
             </Link>
           </Reveal>
@@ -108,6 +108,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   <li key={item.slug}>
                     <Link
                       href={`/servicios/${item.slug}`}
+                      prefetch={false}
                       className="block rounded-button border border-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-secondary hover:text-secondary"
                     >
                       {item.name}

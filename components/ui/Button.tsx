@@ -34,7 +34,11 @@ export function LinkButton({ href, variant = "primary", className = "", children
   }
 
   return (
-    <Link href={href} className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
+    <Link
+      href={href}
+      prefetch={false}
+      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+    >
       {children}
     </Link>
   );
