@@ -116,6 +116,13 @@ Cabeceras configuradas en `public/.htaccess` (Apache/Hostinger; el export
 estático no tiene servidor Next.js para aplicarlas vía `next.config.ts`),
 aplicadas a todas las rutas:
 
+> **Mientras el sitio siga en Vercel** (antes de completar la mudanza a
+> Hostinger): `.htaccess` no aplica ahí, así que `vercel.json` en la raíz
+> del proyecto define las mismas cabeceras (excepto HSTS, que Vercel ya
+> agrega por defecto) para que no queden sin efecto en el dominio de Vercel
+> mientras tanto. Una vez que el dominio apunte a Hostinger, `vercel.json`
+> ya no hace nada y se puede borrar sin problema.
+
 - **Content-Security-Policy**: diseñada para las dependencias reales del
   proyecto (sin scripts, estilos ni imágenes de terceros). Usa
   `'unsafe-inline'` en `script-src`/`style-src` porque Next.js App Router
