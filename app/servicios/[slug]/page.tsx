@@ -80,7 +80,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     key={bullet}
                     as="li"
                     delay={index * 70}
-                    className="flex items-start gap-3 rounded-card bg-gray-50 p-4 text-sm font-medium text-neutral-900"
+                    className="flex items-start gap-3 rounded-card bg-gray-50 p-4 text-base font-medium text-neutral-900"
                   >
                     <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
                     {bullet}

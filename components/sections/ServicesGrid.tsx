@@ -49,7 +49,7 @@ export default function ServicesGrid({ ctaLabel }: ServicesGridProps) {
                       <h3 className="font-heading text-lg font-bold text-neutral-900 group-hover:text-secondary">
                         {service.name}
                       </h3>
-                      <p className="text-sm text-gray-600">{service.shortDescription}</p>
+                      <p className="text-base text-gray-600">{service.shortDescription}</p>
                       <span className="mt-auto pt-3 text-sm font-semibold text-secondary">
                         Ver más
                       </span>
@@ -69,7 +69,7 @@ export default function ServicesGrid({ ctaLabel }: ServicesGridProps) {
               <h3 className="font-heading text-lg font-bold text-secondary">
                 ¿Necesitas algo más?
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-base text-gray-600">
                 Cuéntanos qué necesitas y te ayudamos a resolverlo.
               </p>
             </div>

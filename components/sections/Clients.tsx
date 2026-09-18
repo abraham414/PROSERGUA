@@ -23,7 +23,7 @@ function ClientGrid({ items, fit }: { items: Client[]; fit: "cover" | "contain" 
               className={fit === "contain" ? "object-contain" : "object-cover"}
             />
           </div>
-          <span className="text-center text-xs font-medium text-gray-500">{client.name}</span>
+          <span className="text-center text-sm font-medium text-gray-500">{client.name}</span>
         </div>
       ))}
     </div>

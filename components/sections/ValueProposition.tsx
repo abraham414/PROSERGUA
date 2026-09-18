@@ -26,7 +26,7 @@ export default function ValueProposition() {
                   }`}
                 >
                   <h3 className="font-heading text-lg font-bold text-primary">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-gray-200">{item.description}</p>
+                  <p className="text-base leading-relaxed text-gray-200">{item.description}</p>
                 </div>
               </Reveal>
             );

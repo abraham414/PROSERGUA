@@ -36,7 +36,7 @@ export default function Philosophy() {
             <Reveal key={value.name} delay={index * 90}>
               <div className="h-full rounded-card bg-gray-50 p-6">
                 <h4 className="font-heading text-lg font-bold text-neutral-900">{value.name}</h4>
-                <p className="mt-2 text-sm text-gray-600">{value.description}</p>
+                <p className="mt-2 text-base text-gray-600">{value.description}</p>
               </div>
             </Reveal>
           ))}

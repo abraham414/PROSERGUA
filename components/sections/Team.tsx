@@ -21,7 +21,7 @@ const team = [
 
 export default function Team() {
   return (
-    <section className="bg-gray-50 py-20 sm:py-28">
+    <section className="bg-gray-50 py-14 sm:py-20 lg:py-28">
       <Container className="flex flex-col gap-12">
         <Reveal>
           <SectionHeading eyebrow="Nuestro equipo" title="Nuestro equipo está compuesto por" align="center" />
@@ -45,7 +45,7 @@ export default function Team() {
                   <h3 className="font-heading text-lg font-bold text-neutral-900">
                     {member.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-600">{member.description}</p>
+                  <p className="mt-2 text-base text-gray-600">{member.description}</p>
                 </Card>
               </Reveal>
             ))}
