@@ -3,13 +3,12 @@ import { notFound } from "next/navigation";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import { LinkButton } from "@/components/ui/Button";
 import Reveal from "@/components/motion/Reveal";
 import ProjectImageLightbox from "@/components/sections/ProjectImageLightbox";
-import RelatedProjects from "@/components/sections/RelatedProjects";
+import RelatedServices from "@/components/sections/RelatedServices";
 import ContactCTA from "@/components/sections/ContactCTA";
 import { projects, getProjectBySlug } from "@/data/projects";
-import { getServiceForProject, getRelatedProjects } from "@/lib/relations";
+import { getServiceForProject, getServicesForProject } from "@/lib/relations";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -52,7 +51,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const hasRealTitle = project.title !== "Proyecto destacado";
   const displayTitle = hasRealTitle ? project.title : project.category;
   const service = getServiceForProject(project);
-  const related = getRelatedProjects(project);
+  const relatedServices = getServicesForProject(project);
 
   const infoFields = [
     { label: "Cliente", value: project.client },
@@ -126,21 +125,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </Reveal>
           </div>
 
-          {service && (
-            <Reveal>
-              <div className="flex flex-col items-start gap-4 rounded-card bg-gray-50 p-6 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <h2 className="font-heading text-lg font-bold text-neutral-900">Servicio relacionado</h2>
-                  <p className="text-base text-gray-600">{service.shortDescription}</p>
-                </div>
-                <LinkButton href={`/servicios/${service.slug}`} variant="secondary" className="shrink-0">
-                  Ver {service.name}
-                </LinkButton>
-              </div>
-            </Reveal>
-          )}
-
-          {related.length > 0 && <RelatedProjects title="También podría interesarte" projects={related} />}
+          <RelatedServices services={relatedServices} />
         </Container>
       </section>
 

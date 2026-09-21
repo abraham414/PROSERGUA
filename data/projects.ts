@@ -1,13 +1,11 @@
 import type { Project } from "@/types";
 
 /**
- * La presentación oficial de PROSERGUA no asigna nombres individuales a la
- * mayoría de los proyectos de su galería. Siguiendo esa fuente, esos elementos
- * se etiquetan como "Proyecto destacado" en lugar de inventar un nombre; la
- * categoría sí se puede indicar porque corresponde a las áreas de servicio
- * oficiales. Los 3 proyectos documentados (con descripción, cliente y
- * ubicación reales, provistos por el cliente) sí llevan título, resumen y
- * datos propios, porque esa información existe y fue verificada.
+ * Estos son los 3 proyectos de PROSERGUA con documentación real del cliente
+ * (descripción de la obra, cliente y ubicación provistos directamente por
+ * PROSERGUA). La sección de Proyectos muestra únicamente estos 3: no hay
+ * información verificable para presentar ningún otro proyecto como caso
+ * real, así que no se incluyen placeholders genéricos.
  */
 export const projects: Project[] = [
   {
@@ -100,12 +98,16 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        src: "/images/projects/minfin-estructura-techo-02.webp",
-        alt: "Vista interior de la estructura metálica y lámina troquelada prepintada blanca instalada en bodega del MINFIN",
+        src: "/images/projects/minfin-estructura-techo-00-antes.webp",
+        alt: "Techo original de lámina de asbesto, antes de la intervención, en bodega del Ministerio de Finanzas",
       },
       {
         src: "/images/projects/minfin-estructura-techo-01.webp",
         alt: "Técnico de PROSERGUA soldando estructura metálica nueva para techo de bodega del Ministerio de Finanzas",
+      },
+      {
+        src: "/images/projects/minfin-estructura-techo-02.webp",
+        alt: "Vista interior de la estructura metálica y lámina troquelada prepintada blanca instalada en bodega del MINFIN",
       },
       {
         src: "/images/projects/minfin-estructura-techo-03.webp",
@@ -113,86 +115,6 @@ export const projects: Project[] = [
       },
     ],
     featured: true,
-  },
-  {
-    id: "estructura-metalica-techos",
-    title: "Proyecto destacado",
-    category: "Herrería / Estructuras metálicas",
-    images: [
-      { src: "/images/services/herreria.webp", alt: "Estructura metálica y techo instalado por PROSERGUA" },
-    ],
-  },
-  {
-    id: "tuberia-hidraulica",
-    title: "Proyecto destacado",
-    category: "Tubería hidráulica",
-    images: [
-      { src: "/images/services/tuberia-hidraulica.webp", alt: "Instalación de tubería hidráulica industrial" },
-    ],
-  },
-  {
-    id: "construccion-reforzamiento",
-    title: "Proyecto destacado",
-    category: "Construcción / Reforzamiento",
-    images: [
-      { src: "/images/services/construccion-remodelacion.webp", alt: "Obra de construcción y reforzamiento estructural" },
-    ],
-  },
-  {
-    id: "electricidad-tablero",
-    title: "Proyecto destacado",
-    category: "Electricidad",
-    images: [
-      { src: "/images/services/electricidad.webp", alt: "Tablero eléctrico industrial intervenido por un técnico" },
-    ],
-  },
-  {
-    id: "auditoria-electrica",
-    title: "Proyecto destacado",
-    category: "Auditorías eléctricas",
-    images: [
-      { src: "/images/services/auditorias-electricas.webp", alt: "Auditoría eléctrica en campo con equipo especializado" },
-    ],
-  },
-  {
-    id: "suministros-bodega",
-    title: "Proyecto destacado",
-    category: "Comercialización de suministros",
-    images: [
-      { src: "/images/services/suministros.webp", alt: "Bodega de suministros metálicos para construcción" },
-    ],
-  },
-  {
-    id: "equipo-rooftop",
-    title: "Proyecto destacado",
-    category: "Electricidad",
-    images: [
-      { src: "/images/team/equipo-rooftop.webp", alt: "Equipo de PROSERGUA en obra sobre azotea" },
-    ],
-  },
-  {
-    id: "tecnicos-panel",
-    title: "Proyecto destacado",
-    category: "Electricidad",
-    images: [
-      { src: "/images/team/tecnicos-panel.webp", alt: "Técnicos de PROSERGUA interviniendo un tablero eléctrico" },
-    ],
-  },
-  {
-    id: "sala-bombas",
-    title: "Proyecto destacado",
-    category: "Tubería hidráulica",
-    images: [
-      { src: "/images/backgrounds/sala-bombas.webp", alt: "Sala de bombas y tubería industrial" },
-    ],
-  },
-  {
-    id: "oficina-remodelada",
-    title: "Proyecto destacado",
-    category: "Remodelaciones",
-    images: [
-      { src: "/images/office/oficina-recepcion.webp", alt: "Oficina remodelada con divisiones de cristal" },
-    ],
   },
 ];
 

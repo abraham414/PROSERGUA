@@ -27,8 +27,8 @@ export default function ProyectosPage() {
           </Reveal>
           <Reveal delay={160}>
             <p className="max-w-2xl text-lg text-gray-200">
-              Trabajos de construcción, herrería, tubería hidráulica y electricidad ejecutados
-              para clientes institucionales y privados en Guatemala.
+              Proyectos reales que hemos ejecutado para clientes institucionales en Guatemala:
+              esto es exactamente lo que hicimos, con nuestras propias fotografías.
             </p>
           </Reveal>
         </Container>
