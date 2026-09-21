@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { ProjectImage } from "@/types";
 
 interface ProjectImageLightboxProps {
@@ -117,16 +118,17 @@ export default function ProjectImageLightbox({ images }: ProjectImageLightboxPro
         )}
       </div>
 
-      {active && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Galería de imágenes del proyecto"
-          className={`fixed inset-0 z-[100] flex items-center justify-center bg-neutral-900/90 p-4 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:p-8 ${
-            visible ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={close}
-        >
+      {active &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Galería de imágenes del proyecto"
+            className={`fixed inset-0 z-[100] flex items-center justify-center bg-neutral-900/90 p-4 transition-opacity duration-200 ease-out motion-reduce:transition-none sm:p-8 ${
+              visible ? "opacity-100" : "opacity-0"
+            }`}
+            onClick={close}
+          >
           <button
             type="button"
             onClick={close}
@@ -187,8 +189,9 @@ export default function ProjectImageLightbox({ images }: ProjectImageLightboxPro
               </svg>
             </button>
           )}
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }
