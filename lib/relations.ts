@@ -14,12 +14,19 @@ export function getServiceForProject(project: Project): Service | undefined {
   return services.find((service) => service.name === project.category);
 }
 
-export function getProjectsForService(service: Service): Project[] {
-  return projects.filter((project) => project.category === service.name);
+/**
+ * Servicios relacionados con un proyecto. Hoy cada proyecto tiene una sola
+ * categoría, así que devuelve como máximo un servicio, pero como array para
+ * que un proyecto futuro con varios tipos de trabajo pueda relacionarse con
+ * varios servicios sin cambiar quién la consume.
+ */
+export function getServicesForProject(project: Project): Service[] {
+  const service = getServiceForProject(project);
+  return service ? [service] : [];
 }
 
-export function getRelatedProjects(project: Project, limit = 3): Project[] {
-  return projects.filter((p) => p.id !== project.id && p.category === project.category).slice(0, limit);
+export function getProjectsForService(service: Service): Project[] {
+  return projects.filter((project) => project.category === service.name);
 }
 
 /** Imágenes reales de los proyectos de un servicio, sin duplicar assets. */
