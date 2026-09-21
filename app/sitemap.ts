@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
+import { projects } from "@/data/projects";
 import { siteConfig } from "@/lib/site";
 
 // Requerido por el export estático (output: "export").
@@ -20,5 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  const projectRoutes = projects.map((project) => ({
+    url: `${siteConfig.url}/proyectos/${project.id}/`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
 }
