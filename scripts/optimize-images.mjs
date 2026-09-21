@@ -21,6 +21,7 @@ const CATEGORIES = [
   { dir: "public/images/team", maxWidth: 1200, quality: 80 },
   { dir: "public/images/office", maxWidth: 1200, quality: 80 },
   { dir: "public/images/services", maxWidth: 1200, quality: 80 },
+  { dir: "public/images/projects", maxWidth: 1600, quality: 78 },
   { dir: "public/images/clients", maxWidth: 400, quality: 82 },
   { dir: "public/images/brands", maxWidth: 400, quality: 82 },
 ];
@@ -40,6 +41,7 @@ async function run() {
       const before = (await stat(srcPath)).size;
 
       await sharp(srcPath)
+        .rotate()
         .resize({ width: maxWidth, withoutEnlargement: true })
         .webp({ quality })
         .toFile(destPath);
