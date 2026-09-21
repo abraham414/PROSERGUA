@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
-import ProjectGallery from "@/components/sections/ProjectGallery";
+import ProjectsExplorer from "@/components/sections/ProjectsExplorer";
 import Reveal from "@/components/motion/Reveal";
 import { projects } from "@/data/projects";
 
@@ -25,12 +25,18 @@ export default function ProyectosPage() {
               Proyectos destacados
             </h1>
           </Reveal>
+          <Reveal delay={160}>
+            <p className="max-w-2xl text-lg text-gray-200">
+              Trabajos de construcción, herrería, tubería hidráulica y electricidad ejecutados
+              para clientes institucionales y privados en Guatemala.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
       <section className="py-20 sm:py-28">
         <Container>
-          <ProjectGallery projects={projects} />
+          <ProjectsExplorer projects={projects} />
         </Container>
       </section>
     </>

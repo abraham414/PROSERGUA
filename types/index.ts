@@ -45,14 +45,27 @@ export interface Service {
   };
 }
 
+export interface ProjectImage {
+  src: string;
+  alt: string;
+}
+
+export interface ProjectContentSection {
+  heading: string;
+  body: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   category: string;
-  image: {
-    src: string;
-    alt: string;
-  };
+  client?: string;
+  location?: string;
+  year?: string;
+  summary?: string;
+  sections?: ProjectContentSection[];
+  images: ProjectImage[];
+  featured?: boolean;
 }
 
 export interface Client {
