@@ -7,6 +7,8 @@ export interface CompanyInfo {
   foundedLabel: string;
   teamSize: number;
   teamSizeLabel: string;
+  projectsCompleted: number;
+  satisfiedClients: number;
   mission: string;
   vision: string;
   values: CompanyValue[];

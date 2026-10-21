@@ -9,6 +9,8 @@ export const company: CompanyInfo = {
   foundedLabel: "Fundada en diciembre de 2020",
   teamSize: 25,
   teamSizeLabel: "Equipo de aproximadamente 25 personas entre empleados directos y colaboradores externos",
+  projectsCompleted: 150,
+  satisfiedClients: 32,
   mission:
     "Proporcionar soluciones integrales a nuestros clientes por medio de la experiencia, innovación y compromiso de nuestro equipo, garantizando la excelencia en cada proyecto que realizamos.",
   vision:
