@@ -1,9 +1,9 @@
 import type { Project } from "@/types";
 
 /**
- * Estos son los 3 proyectos de PROSERGUA con documentación real del cliente
+ * Estos son los proyectos de PROSERGUA con documentación real del cliente
  * (descripción de la obra, cliente y ubicación provistos directamente por
- * PROSERGUA). La sección de Proyectos muestra únicamente estos 3: no hay
+ * PROSERGUA). La sección de Proyectos muestra únicamente estos: no hay
  * información verificable para presentar ningún otro proyecto como caso
  * real, así que no se incluyen placeholders genéricos.
  */
@@ -115,6 +115,164 @@ export const projects: Project[] = [
       },
     ],
     featured: true,
+  },
+  {
+    id: "ampliacion-parqueo",
+    title: "Ampliación y readecuación de parqueo del Registro Mercantil",
+    category: "Construcción / Reforzamiento",
+    client: "Registro Mercantil (RM) y Registro de la Propiedad Intelectual",
+    year: "Diciembre 2023",
+    summary:
+      "Ampliación y redistribución del parqueo utilizado por el Registro Mercantil y el Registro de la Propiedad Intelectual.",
+    sections: [
+      {
+        heading: "Alcance",
+        body: "Se retiraron banquetas que no eran útiles y se amplió el parqueo para mensajeros de ambas instituciones. Se habilitó parqueo exclusivo para cada jefe de las dos entidades. La readecuación duró aproximadamente 20 días.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/projects/rm-ampliacion-parqueo-04.webp",
+        alt: "Parqueo del Registro Mercantil terminado, con líneas amarillas nuevas",
+      },
+      {
+        src: "/images/projects/rm-ampliacion-parqueo-01.webp",
+        alt: "Parqueo antiguo del Registro Mercantil antes de la readecuación, con banquetas por retirar",
+      },
+      {
+        src: "/images/projects/rm-ampliacion-parqueo-02.webp",
+        alt: "Trabajador de PROSERGUA retirando concreto durante la demolición del parqueo del Registro Mercantil",
+      },
+      {
+        src: "/images/projects/rm-ampliacion-parqueo-03.webp",
+        alt: "Colado de concreto nuevo en el parqueo del Registro Mercantil durante la readecuación",
+      },
+      {
+        src: "/images/projects/rm-ampliacion-parqueo-05.webp",
+        alt: "Vista del parqueo del Registro Mercantil con los espacios ya delimitados tras la readecuación",
+      },
+    ],
+  },
+  {
+    id: "auditoria-electrica-han-sae",
+    title: "Auditoría eléctrica en complejo de maquilas HAN SAE",
+    category: "Auditorías eléctricas",
+    client: "HAN SAE",
+    year: "Agosto 2025",
+    summary:
+      "Auditoría eléctrica en un complejo de maquilas, para detectar fallas en máquinas o consumos excesivos y evitar sobrecargas que detengan la producción.",
+    sections: [
+      {
+        heading: "Objetivo",
+        body: "Detectar fallas en máquinas o consumos excesivos que puedan generar sobrecarga en los circuitos y detener la producción. Este tipo de auditoría la solicitan clientes extranjeros que maquilan sus marcas en Guatemala, para garantizar la producción de las prendas que manejan para venta nacional e importación y la seguridad de los operarios de cada línea de producción.",
+      },
+      {
+        heading: "Alcance",
+        body: "Medición de 3 días en los paneles principales para detectar cambios en el suministro o demanda eléctrica, junto con una inspección interna y externa en cada uno de los tableros de las plantas. Duración total: 2 meses y medio.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/projects/han-sae-auditoria-01.webp",
+        alt: "Técnico de PROSERGUA realizando auditoría eléctrica en tablero principal en HAN SAE",
+      },
+      {
+        src: "/images/projects/han-sae-auditoria-02.webp",
+        alt: "Equipo de medición conectado a tablero eléctrico durante la auditoría en HAN SAE",
+      },
+      {
+        src: "/images/projects/han-sae-auditoria-03.webp",
+        alt: "Técnico de PROSERGUA inspeccionando panel eléctrico con lista de verificación en HAN SAE",
+      },
+      {
+        src: "/images/projects/han-sae-auditoria-04.webp",
+        alt: "Equipo de PROSERGUA realizando la auditoría eléctrica en las instalaciones de HAN SAE",
+      },
+      {
+        src: "/images/projects/han-sae-auditoria-05.webp",
+        alt: "Área de producción del complejo de maquilas HAN SAE durante la auditoría eléctrica",
+      },
+    ],
+  },
+  {
+    id: "instalacion-piso-mineco",
+    title: "Cambio de piso tipo duela en el Ministerio de Economía",
+    category: "Remodelaciones",
+    client: "Ministerio de Economía (MINECO)",
+    location: "Área financiera, 5to nivel del edificio central",
+    year: "Febrero 2025 (aprox.)",
+    summary:
+      "Cambio de 185 metros cuadrados de piso tipo duela en el área financiera del 5to nivel del edificio central del Ministerio de Economía, como parte de la nueva administración.",
+    sections: [
+      {
+        heading: "Alcance",
+        body: "Demolición de divisiones de tablayeso, cambio de puerta en mal estado y reubicación de tomacorrientes, además de la instalación de 185 metros cuadrados de piso tipo duela.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/projects/mineco-piso-duela-04.webp",
+        alt: "Área financiera del MINECO con el nuevo piso tipo duela terminado",
+      },
+      {
+        src: "/images/projects/mineco-piso-duela-01.webp",
+        alt: "Área financiera del Ministerio de Economía antes del cambio de piso, con divisiones de tablayeso por demoler",
+      },
+      {
+        src: "/images/projects/mineco-piso-duela-02.webp",
+        alt: "Técnico de PROSERGUA demoliendo divisiones de tablayeso en el área financiera del MINECO",
+      },
+      {
+        src: "/images/projects/mineco-piso-duela-03.webp",
+        alt: "Instalación de piso tipo duela en el área financiera del Ministerio de Economía",
+      },
+      {
+        src: "/images/projects/mineco-piso-duela-05.webp",
+        alt: "Oficina del área financiera del Ministerio de Economía con el piso tipo duela ya instalado",
+      },
+    ],
+  },
+  {
+    id: "instalaciones-electricas-hotel-clarion-suites",
+    title: "Instalaciones eléctricas en el Hotel Clarion Suites",
+    category: "Electricidad",
+    client: "Hotel Clarion Suites",
+    location: "Zona 10",
+    year: "Junio 2025",
+    summary:
+      "Sustitución de tomacorrientes antiguos e instalación y actualización de lámparas y reflectores LED en los niveles 17, 08 y 03 del Hotel Clarion Suites, principalmente en salas de reuniones.",
+    sections: [
+      {
+        heading: "Alcance",
+        body: "Sustitución de tomacorrientes antiguos e instalación y actualización de lámparas y reflectores LED en los niveles 17, 08 y 03, con el objetivo de mejorar las condiciones de iluminación y modernizar las instalaciones eléctricas.",
+      },
+      {
+        heading: "Detalles técnicos",
+        body: "Se actualizaron los circuitos eléctricos involucrados, garantizando que las instalaciones cumplieran con los requerimientos, especificaciones técnicas y certificaciones exigidas por el cliente.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/projects/clarion-suites-electrico-01.webp",
+        alt: "Sala de reuniones del Hotel Clarion Suites con iluminación LED actualizada",
+      },
+      {
+        src: "/images/projects/clarion-suites-electrico-02.webp",
+        alt: "Sala de reuniones del Hotel Clarion Suites con los nuevos reflectores LED instalados",
+      },
+      {
+        src: "/images/projects/clarion-suites-electrico-03.webp",
+        alt: "Detalle de la lámpara LED instalada en el cielo falso del Hotel Clarion Suites",
+      },
+      {
+        src: "/images/projects/clarion-suites-electrico-04.webp",
+        alt: "Técnico de PROSERGUA trabajando en las instalaciones eléctricas de una sala del Hotel Clarion Suites",
+      },
+      {
+        src: "/images/projects/clarion-suites-electrico-05.webp",
+        alt: "Área común del Hotel Clarion Suites con iluminación renovada",
+      },
+    ],
   },
 ];
 
